@@ -7,6 +7,9 @@ import { colorModeContext, useMode } from './theme/index.ts'
 import { CssBaseline, ThemeProvider } from '@mui/material'
 import { useState } from "react"
 import LayoutComponent from "./components/layout/index.tsx"
+import News from "./components/news/index.tsx"
+import Logout from "./components/Logout/index.tsx"
+import Settings from "./components/Settings/index.tsx"
 
 
 
@@ -21,6 +24,9 @@ const App = () => {
     <Routes>
       <Route element={<PrivateRoute/>}>
       <Route path="/" element={<Home/>}/>
+      <Route path="/news" element={<News/>}/>
+      <Route path="/logout" element={<Logout/>}/>
+      <Route path="/settings" element={<Settings/>}/>
       </Route>
       <Route path="login" element={<AuthRootComponent/>}/>
       <Route path="register" element={<AuthRootComponent/>}/>

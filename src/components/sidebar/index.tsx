@@ -2,6 +2,8 @@ import { Box, Drawer, Divider, IconButton, List, ListItem, ListItemButton, ListI
 import React, { useEffect, useState } from 'react'
 import {Home, ChevronRight, ChevronLeft, AutoGraph, MenuBook, Logout} from '@mui/icons-material';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { NavMenu } from '../../common/moks/navigate';
+import logo  from '../../assets/images/sidebar/logo.png'
 
 const SideBarComponent = (props: any) => {
     const [active, setActive] = useState('')
@@ -9,8 +11,23 @@ const SideBarComponent = (props: any) => {
     const navigate = useNavigate()
     const {isNonMobile, drawerWidth, isOpen, setIsOpen} = props
 
+    const navigateSideBar = <List>
+    {NavMenu.map((item) => {
+        return (
+            <ListItemButton onClick={() => navigate(`${item.path}`)}>
+            <ListItem key={item.id}>
+                <ListItemIcon>
+                    {item.icon}
+                </ListItemIcon>
+            <h2>{item.name}</h2>
+            </ListItem>
+            </ListItemButton>
+        )
+    })}
+</List>
+
     useEffect(() => {
-setActive(pathname.substring[1])
+setActive(pathname.substring(1))
     }, [pathname])
   return (
     <Box component={'nav'}>
@@ -32,8 +49,9 @@ setActive(pathname.substring[1])
         <Box width={'100%'}>
            <Box>
            <Box sx={{display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
-<Box display={'flex'} alignItems={'center'} gap={'10px'}>
-    <Typography>Demo</Typography>
+<Box display={'flex'} alignItems={'center'} gap={'10px'} padding={'25px '}>
+    <img src={logo} width={50}/>
+    <Typography variant='h4'>Demo</Typography>
 </Box>
 {!isNonMobile && (
     <IconButton onClick={() => setIsOpen(!isOpen)}>
@@ -42,6 +60,7 @@ setActive(pathname.substring[1])
 )}
 </Box>
            </Box>
+        {navigateSideBar}
         </Box>
     </Drawer>
 )}

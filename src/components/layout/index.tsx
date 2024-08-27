@@ -14,7 +14,7 @@ const LayoutComponent = ({children}: ILayout) => {
     location.pathname === '/login' || location.pathname === '/register' ? (<>
       {children}
       </>) : (
-        <Box display={isNonMobile ? 'flex' : 'block'}
+        <Box display={'flex'} justifyContent={'space-between'} 
          width={'100%'}
           height={'100%'}>
             <SideBarComponent 
@@ -23,8 +23,8 @@ const LayoutComponent = ({children}: ILayout) => {
             isOpen={isOpen}
             setIsOpen={setIsOpen}
             />
-<Box>
-<TopBarComponent/>
+<Box  >
+<TopBarComponent />
 {children}
 </Box>
         </Box>

@@ -1,4 +1,4 @@
-import { Box, Grid, IconButton, InputBase } from '@mui/material'
+import { Box, Grid, IconButton, InputBase, Typography } from '@mui/material'
 import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone';
 import SearchIcon from '@mui/icons-material/Search';
 import Brightness2Icon from '@mui/icons-material/Brightness2';
@@ -11,9 +11,9 @@ const TopBarComponent = () => {
 
   return (
     <Box display={'flex'} justifyContent={'space-between'} px={'32px'} py={'24px'}>
-        <Grid>Weclome, {user}</Grid>
+        <Grid mr={'1050px'}><Typography variant='h5'>Weclome, {user}</Typography></Grid>
         <Box display={'flex'}>
-            <Grid sx={{pr: '37px', borderRight: '1px solid #999'}}>
+            <Grid sx={{pr: '37px', borderRight: '1px solid #999'}} >
                 <IconButton sx={{mr: '45px'}}>
                   <Brightness2Icon/>
                   </IconButton>
